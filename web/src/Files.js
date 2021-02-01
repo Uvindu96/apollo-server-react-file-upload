@@ -14,14 +14,16 @@ export const Files = () => {
   if (loading) {
     return <div>loading...</div>;
   }
-
+  if (!data) {
+    return null
+    }
   return (
     <div>
       {data.files.map(x => (
         <img
           style={{ width: 200 }}
           key={x}
-          src={`http://localhost:4000/images/${x}`}
+          src={`https://storage.cloud.google.com/stone-semiotics-297911-images-input/${x}`}
           alt={x}
         />
       ))}

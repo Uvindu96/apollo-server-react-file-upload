@@ -2,6 +2,8 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const { createWriteStream, existsSync, mkdirSync } = require("fs");
 const path = require("path");
 const express = require("express");
+const {Storage} = require('@google-cloud/storage');
+const { Console } = require("console");
 
 const files = [];
 
@@ -15,6 +17,30 @@ const typeDefs = gql`
   }
 `;
 
+  const gc = new Storage({
+    keyFileName: path.join(__dirname,"../stone-semiotics-297911-01ec4ae38b3a.json"),
+    projectID: 'stone-semiotics-297911'
+  });
+  const storage = new Storage();
+// Makes an authenticated API request.
+async function listBuckets() {
+  try {
+    const results = await storage.getBuckets();
+
+    const [buckets] = results;
+
+    console.log('Buckets:');
+    buckets.forEach(bucket => {
+      console.log(bucket.name);
+    });
+  } catch (err) {
+    console.error('ERROR:', err);
+  }
+}
+listBuckets();
+
+const nodejsBucket = gc.bucket('stone-semiotics-297911-images-input');
+
 const resolvers = {
   Query: {
     files: () => files
@@ -25,8 +51,13 @@ const resolvers = {
 
       await new Promise(res =>
         createReadStream()
-          .pipe(createWriteStream(path.join(__dirname, "../images", filename)))
-          .on("close", res)
+          .pipe(
+            nodejsBucket.file(filename).createWriteStream({
+              resumable: false,
+              gzip: true
+            })
+          )
+          .on("finish", res)
       );
 
       files.push(filename);
