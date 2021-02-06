@@ -18,7 +18,8 @@ export const Files = () => {
     return null
     }
   return (
-    <div>
+    <div className="droped-image">
+      <p>Uploaded Images</p>  
       {data.files.map(x => (
         <img
           style={{ width: 200 }}
