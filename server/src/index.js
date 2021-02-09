@@ -54,7 +54,7 @@ const resolvers = {
           .pipe(
             nodejsBucket.file(filename).createWriteStream({
               resumable: false,
-              gzip: true
+              gzip: false
             })
           )
           .on("finish", res)
