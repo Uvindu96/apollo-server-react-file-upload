@@ -15,6 +15,7 @@
     width: 800px;
     height: 200px;
     border: 4px dashed #4aa1f3;
+    padding: 10%;
 }
 
 .upload-icon {

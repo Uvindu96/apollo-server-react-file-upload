@@ -10,7 +10,26 @@ const uploadFileMutation = gql`
     uploadFile(file: $file)
   }
 `;
-
+export const Nav = () => {
+  return(
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+</nav>
+  );
+}
 export const Upload = () => {
   const [uploadFile] = useMutation(uploadFileMutation, {
     refetchQueries: [{ query: filesQuery }]
@@ -31,8 +50,13 @@ export const Upload = () => {
       {isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <dev class="container">
+         <div class="col text-center">
+         <button type="button" class="btn btn-primary">Upload image</button>
+         </div>
+        </dev>
       )}
     </div>
   );
 };
+

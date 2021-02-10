@@ -9,24 +9,11 @@ export const filesQuery = gql`
 `;
 
 export const Resized = () => {
-  const { data, loading } = useQuery(filesQuery);
-
-  if (loading) {
-    return <div>loading...</div>;
-  }
-  if (!data) {
-    return null
-    }
   return (
-    <div className="droped-image">
-      <p>Resized Images</p>  
-      {data.files.map(x => (
-        <img
-          key={x}
-          src={`https://storage.cloud.google.com/stone-semiotics-297911-images-output/beach-400x400-watermark.jpeg`}
-          alt={x}
-        />
-      ))}
-    </div>
+        <dev class="container">
+         <div class="col text-left">
+         <button type="button" class="btn btn-success mr-2">View Results</button>
+         </div>
+        </dev>
   );
 };

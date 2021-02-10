@@ -4,6 +4,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { client } from "./apollo";
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
   <ApolloProvider client={client}>

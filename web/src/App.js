@@ -1,11 +1,12 @@
 import React from "react";
-import { Upload } from "./Upload";
+import { Nav, Upload } from "./Upload";
 import { Files } from "./Files";
 import { Resized } from "./Resized";
 
 function App() {
   return (
     <div>
+      <Nav />
       <Upload />
       <Files />
       <Resized />
