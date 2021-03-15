@@ -18,8 +18,8 @@ const typeDefs = gql`
 `;
 
   const gc = new Storage({
-    keyFileName: path.join(__dirname,"../stone-semiotics-297911-d36c352d6f77.json"),
-    projectID: 'stone-semiotics-297911'
+    keyFileName: path.join(__dirname,"../buoyant-climate-307017-25d6b358c04a.json"),
+    projectID: 'buoyant-climate-307017'
   });
   const storage = new Storage();
 // Makes an authenticated API request.
@@ -39,7 +39,7 @@ async function listBuckets() {
 }
 listBuckets();
 
-const nodejsBucket = gc.bucket('stone-semiotics-297911-images-input');
+const nodejsBucket = gc.bucket('buoyant-climate-307017-images-input');
 
 const resolvers = {
   Query: {

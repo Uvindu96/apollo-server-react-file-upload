@@ -19,12 +19,12 @@ export const Files = () => {
     }
   return (
     <div className="droped-image">
-      <p>Uploaded Images</p>  
+      <p>Uploaded Images</p>   
       {data.files.map(x => (
         <img
           style={{ width: 200 }}
           key={x}
-          src={`https://storage.cloud.google.com/stone-semiotics-297911-images-input/${x}`}
+          src={`https://storage.cloud.google.com/buoyant-climate-307017-images-input/${x}`}
           alt={x}
         />
       ))}
