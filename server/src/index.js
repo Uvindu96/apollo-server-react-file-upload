@@ -18,7 +18,7 @@ const typeDefs = gql`
 `;
 
   const gc = new Storage({
-    keyFileName: path.join(__dirname,"../stone-semiotics-297911-01ec4ae38b3a.json"),
+    keyFileName: path.join(__dirname,"../stone-semiotics-297911-d36c352d6f77.json"),
     projectID: 'stone-semiotics-297911'
   });
   const storage = new Storage();
